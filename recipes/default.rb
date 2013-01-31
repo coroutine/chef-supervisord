@@ -21,7 +21,7 @@ include_recipe "python"
 
 python_pip "supervisor" do
     action :upgrade
-    version node['supervisor']['version'] if node['supervisor']['version']
+    version node['supervisor']['version'] if (node['supervisor'] && node['supervisor']['version'])
 end
 
 template "#{node["supervisord"]["conf_dir"]}/supervisord.conf" do
