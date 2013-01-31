@@ -17,8 +17,11 @@
 # limitations under the License.
 #
 
-package "supervisor" do
-  action :install
+include_recipe "python"
+
+python_pip "supervisor" do
+    action :upgrade
+    version node['supervisor']['version'] if node['supervisor']['version']
 end
 
 template "#{node["supervisord"]["conf_dir"]}/supervisord.conf" do
