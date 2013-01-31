@@ -7,3 +7,5 @@ version          "0.1.4"
 
 recipe           "supervisord::default", "Installs/Configures supervisord" 
 recipe           "supervisord::includes", "Installs/Configures additional programs" 
+
+depends          "python"
